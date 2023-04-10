@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/********** Variables Css  */
+:root {
+
+    /* Colors  */
+    --text-color: hsl(235, 19%, 35%);
+    --text-color-1: hsl(236, 9%, 61%);
+    --text-color-2: hsl(233, 11%, 84%);
+    --container-color: hsl(0, 0%, 98%);
+    --body-color: hsl(236, 33%, 92%); 
+    --white-color: hsl(0, 0%, 98%);
+    /* primary colors */
+    --bright-blue-color: hsl(220, 98%, 61%);
+    --check-background-color: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+    /* Typography  */
+    --body-font: 'Josefin Sans', sans-serif;
+    --h1-font-size: 2rem;
+    --default-font-size: 1.125rem;
+    --small-font-size: .938rem;
+    --smaller-font-size: .75rem;
+
+    --font-medium: 400;
+    --font-bold: 700;
+}
+
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+li {
+    list-style: none;
+}
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--default-font-size);
+    min-height: 100vh;
+    transition: background .4s;  /* for dark mode animation */
+} 
+
+
+/***************** THEME *************/
+/* Button Dark/Light */
+.change-theme {
+    color: var(--white-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.4s;
+  }
+  
+  /* Variables Dark theme */
+body.dark-theme {
+    --text-color: hsl(236, 33%, 92%);
+    --text-color-1: hsl(234, 39%, 85%); 
+    --text-color-2: hsl(234, 11%, 52%);
+    --container-color: hsl(235, 24%, 19%);
+    --body-color: hsl(235, 21%, 11%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue: hsl(237, 14%, 26%);
+  }
+ /*========== 
+      Color changes in some parts of the website, in dark theme
+  ==========*/
+.dark-theme .header {
+    background: url(./images/bg-mobile-dark.jpg) center / cover;
+    background-repeat: no-repeat;
+    transition: background .4s;
+}
+.dark-theme .button-todo-submit img, 
+.dark-theme .todo-item-check-button img {
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+.dark-theme .button-todo-submit:hover img {
+    opacity: 0.9;
+}
+.dark-theme .todo-item-completed .todo-item-check-button img{
+    opacity: 0.9;
+}
+.dark-theme .controls .filters .filter-button,
+.dark-theme .controls .clear-button {
+    color: var(--text-color-2);
+}
+.dark-theme .controls .filters .active {
+    color: var(--bright-blue-color);
+}
+/************** LAYOUT **********************/
+.container {
+    max-width: 768px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+    width: 100%;
+    height: 30vh;
+    background: url(./images/bg-mobile-light.jpg) center / cover;
+    background-repeat: no-repeat;
+    transition: background .4s;
+    z-index: 100;
+}
+.header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 0;
+}
+.header .nav .nav__logo{
+    color: var(--white-color);
+    font-size: var(--h1-font-size);
+    text-transform: uppercase;
+    letter-spacing: 12px;
+}
+
+.header .form-container {
+    background-color: var(--container-color);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-bottom: .938rem;
+    display: flex;
+    align-items: center;
+}
+.header .form-container .button-todo-submit {
+    outline: none;
+    background: none;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--text-color-2);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    margin-left: .75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .form-container .todo-input {
+    outline: none;
+    border: none;
+    background: none;
+    width: 90%;
+    height: 90%;
+    padding: 0.2rem 0;
+    color: var(--text-color);
+}
+.header .form-container .todo-input ,
+.todo-input::placeholder {
+    font-family: var(--body-font);
+    font-size: var(--default-font-size);
+}
+.header .form-container .todo-input::placeholder {
+    color: var(--text-color-1);
+}
+
+.todo-box {
+    background-color: var(--container-color);
+    border-radius: 0.3rem 0.3rem 0 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+.todo-box .todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--text-color-2);
+}
+.todo-box .todo-item .todo-item-checkbox-parent input[type="checkbox"] {
+    visibility: hidden;
+}
+.todo-box .todo-item .todo-item-checkbox-parent {
+    position: relative;
+    margin: 0 15px;
+}
+.todo-box .todo-item .todo-item-checkbox-parent .todo-item-checkbox{
+    position: absolute;
+    top: 0;
+    /* left: 50%; */
+    transform: translateX(-50%);
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--text-color-2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+.todo-box .todo-item .todo-item-checkbox-parent .todo-item-checkbox img {
+    pointer-events: none;
+}
+.todo-box .todo-item .todo-item-checkbox-parent .todo-item-checkbox:hover {
+    border: 1px solid;
+    border-color: var(--check-background-color);
+    cursor: pointer;
+}
+/* If the checkbox is checked, when checked apply this style  */
+.todo-box .todo-item .todo-item-checkbox-parent input[type="checkbox"]:checked + label {
+    background: var(--check-background-color);
+    border: none;
+}
+.todo-box .todo-item .todo-item-title{
+    flex: 1;
+    font-size: var(--default-font-size);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+}
+/* Checked : Completed */
+.todo-box .todo-item .todo-item-title.checked{
+    text-decoration: line-through;
+    color: var(--text-color-2);
+}
+.todo-box .todo-item .todo-item-delete {
+    margin: 0 8px;
+    cursor: pointer;
+}
+.todo-box .todo-item-empty{
+    text-align: center;
+    padding: 2rem; 
+}
+.controls{
+   display: flex;
+   align-items: center;
+   justify-content: space-between; 
+   background-color: var(--container-color); 
+   padding: 1.2rem;
+   border-radius: 0 0 0.3rem 0.3rem;
+}
+.button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-color-1);
+}
+.controls .filters .filter-button {
+   font-size: var(--default-font-size);
+   margin: 0 8px;
+   font-weight: var(--font-medium);
+   transition: all 0.5s ease;
+} 
+.controls .filters .filter-button:hover,
+.controls .clear-button:hover {
+    color: var(--text-color);
+} 
+.controls .filters .active {
+    color: var(--bright-blue-color);
+}
+.controls .clear-button {
+    font-size: 1rem;
+}
+
+/************ Media Queries  */
+/**************** For small devices */
+@media screen and (max-width: 348px) {
+    .header {
+        height: 20vh;
+    }
+    .todo-box .todo-item .todo-item-title {
+        font-size: var(--small-font-size);
+    }
+    .controls .button,
+    .controls .filters .filter-button {
+        font-size: var(--small-font-size);
+    }
+    .controls .filters .filter-button {
+        margin: 0 2px;
+    }
+}
+
+/************* For medium devices */
+@media screen and (min-width: 767px) {
+  .container {
+     margin-inline: auto;
+     max-width: 567px;
+  }  
+  .header {
+    height: 30vh;
+    background: url(./images/bg-desktop-light.jpg) center / cover;
+  } 
+  .dark-theme .header {
+    background: url(./images/bg-desktop-dark.jpg) center / cover;
+  }
+}
+
+
+/************* For large devices */
+@media screen and (min-width: 1200px) {
+  .header {
+    height: 36vh;
+  }  
+  
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Todo app</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <h1 class="nav__logo">Todo</h1>
+
+            <div class="nav__button">
+                <i class="ri-moon-fill change-theme" id="theme-button"></i>
+            </div>
+        </nav>
+
+        <div class="container form-container">
+            <span class="button-todo-submit"> </span>
+            <input type="text" class="todo-input" placeholder="Create a new todo...">
+        </div>
+
+        <!-- Todo list  -->
+        <ul class="todo-box container">
+        </ul>
+
+        <div class="controls container">
+            <div class="filters">
+                <span class="filter-button button active" id="all">All</span>
+                <span class="filter-button button" id="pending">Pending</span>
+                <span class="filter-button button" id="completed">Completed</span>
+            </div>
+            <button class="clear-button button">Clear All</button>
+        </div>
+
+
+
+    </header>
+
+    <!-- app js -->
+    <script src="/main.js"></script>
+</body>
+
+</html>
